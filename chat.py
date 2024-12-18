@@ -1,35 +1,51 @@
-# 20241219 gjw Begin a chat script using ollama.
+# -*- coding: utf-8 -*-
+#
+# MLHub toolkit for Ollama - Chat
+#
+# Time-stamp: <Thursday 2024-12-19 09:10:10 +1100 Graham Williams>
+#
+# Author: Graham.Williams@togaware.com
+# Licensed under GPLv3.
+# Copyright (c) Togaware Pty Ltd. All rights reserved.
+#
+# ml chat ollama <prompt>
 
+# ----------------------------------------------------------------------
+# Setup.
+# ----------------------------------------------------------------------
+
+import click
 from ollama import chat
 from ollama import ChatResponse
 
-response: ChatResponse = chat(model='llama3.2', messages=[
-  {
-    'role': 'user',
-    'content': 'Why is the sky blue?',
-  },
-])
-print(response['message']['content'])
-# or access fields directly from the response object
-print(response.message.content)
+# -----------------------------------------------------------------------
+# Command line argument and options.
+# -----------------------------------------------------------------------
 
-# As a stream:
+@click.command()
+@click.argument("prompt",
+                default="Why is the ocean blue?",
+                required=False,
+                type=str)
 
-# stream = chat(
-#   model='mistral',
-#   messages=[{'role': 'user', 'content': 'Name an engineer that passes the vibe check'}],
-#   stream=True
-# )
+# -----------------------------------------------------------------------
+# Perform the request.
+# -----------------------------------------------------------------------
 
-# for chunk in stream:
-#   print(chunk['message']['content'], end='', flush=True)
+def cli(prompt):
+    """Process the prompt."""
 
+    print(prompt)
+    response: ChatResponse = chat(model='llama3.2', messages=[
+      {
+        'role': 'user',
+        'content': prompt,
+      },
+    ])
 
-stream = chat(
-    model='llama3.2',
-    messages=[{'role': 'user', 'content': 'Why is the sky blue?'}],
-    stream=True,
-)
+    print(response.message.content)
 
-for chunk in stream:
-  print(chunk['message']['content'], end='', flush=True)
+    print("")
+
+if __name__ == '__main__':
+    cli()

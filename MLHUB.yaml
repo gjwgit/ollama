@@ -1,7 +1,7 @@
 --- # summarization pipeline
 meta:
   name         : ollama
-  title        : a large lanhuahe model for chat as a MLHUB command
+  title        : A large language model for chat as a MLHUB command
   keywords     : python, chat, large language model, llm
   version      : 0.0.1
   languages    : py
@@ -15,4 +15,4 @@ dependencies:
     - README.md
     - chat.py
 commands:
-  chat : Chat bot
+  chat : Chat bot.
