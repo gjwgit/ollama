@@ -3,7 +3,10 @@
 This [MLHUB](https://mlhub.ai/) package provides a command line tool
 based on [ollama](https://github.com/ollama/ollama-python), a large
 language model from Meta. See the [MLHub Desktop Survival
-Guide](https://survivor.togaware.com/mlhub/ollama.html) for details.
+Guide](https://survivor.togaware.com/mlhub/ollama.html) for
+details. Thanks to Arjun Raj's
+[health_rag](https://github.com/AR4152/health_rag) project for the
+basic implementation.
 
 ## Usage
 
@@ -15,7 +18,7 @@ Guide](https://survivor.togaware.com/mlhub/ollama.html) for details.
 
 * To install and configure the package
   ```bash
-  ml install gjwgit/ollama@main
+  ml install gjwgit/ollama@dev
   ml configure ollama
   ml readme ollama
   ml commands ollama
