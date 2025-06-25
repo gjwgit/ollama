@@ -3,7 +3,7 @@ meta:
   name         : ollama
   title        : A large language model for chat and rag as a MLHUB command
   keywords     : python, chat, large language model, llm, privacy, rag
-  version      : 0.0.1
+  version      : 0.0.2
   languages    : py
   license      : mit
   author       : Arjun Raj, Graham Williams
