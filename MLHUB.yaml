@@ -1,18 +1,30 @@
---- # summarization pipeline
+--- # llm chat engine
 meta:
   name         : ollama
-  title        : A large language model for chat as a MLHUB command
-  keywords     : python, chat, large language model, llm
-  version      : 0.0.1
+  title        : A large language model for chat and rag as a MLHUB command
+  keywords     : python, chat, large language model, llm, privacy, rag
+  version      : 0.0.2
   languages    : py
-  license      : gpl3
-  author       : Graham Williams
+  license      : mit
+  author       : Arjun Raj, Graham Williams
   url          : https://github.com/gjwgit/ollama
 dependencies:
   pip3:
-    - ollama
+    - langchain
+    - langchain-ollama
+    - langchain-community
+    - unstructured[markdown,pdf,docx]
+    - markdown
+    - faiss-cpu
   files:
     - README.md
     - chat.py
+    - configure.sh
+    - pull.py
+    - remove.py
+    - context.py
 commands:
   chat : Chat bot.
+  pull : Pull a specified LLM model.
+  remove : Remove a specified LLM model from local storage.
+  context : Create a FAISS vector store from documents for efficient health information retrieval.
