@@ -10,7 +10,6 @@ Guide](https://survivor.togaware.com/mlhub/ollama.html) for details.
 * To install mlhub (Ubuntu 24.04 LTS)
   ```bash
   pipx install mlhub
-  pipx inject distutils
   ml configure
   ```
 
